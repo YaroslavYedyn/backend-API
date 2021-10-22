@@ -14,7 +14,8 @@ module.exports = {
     ],
     plugins: [
         '@typescript-eslint',
-        '@typescript-eslint/tslint'
+        '@typescript-eslint/tslint',
+        '@graphql-eslint'
     ],
     rules: {
     // "array-bracket-newline": ["error", { "minItems": 2 }],
@@ -164,6 +165,13 @@ module.exports = {
         '@typescript-eslint/prefer-function-type': 'error',
         '@typescript-eslint/prefer-namespace-keyword': 'error',
         '@typescript-eslint/type-annotation-spacing': 'error',
-        '@typescript-eslint/unified-signatures': 'error'
+        '@typescript-eslint/unified-signatures': 'error',
+        'prettier/prettier': 'off',
+        '@graphql-eslint/unique-fragment-name': 'warn',
+        '@graphql-eslint/no-anonymous-operations': 'warn',
+        '@graphql-eslint/no-operation-name-suffix': 'error',
+        '@graphql-eslint/no-case-insensitive-enum-values-duplicates': [
+            'error'
+        ]
     }
 };

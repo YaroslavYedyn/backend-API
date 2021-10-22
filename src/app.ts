@@ -10,7 +10,7 @@ import {NextFunction, Request, Response} from 'express';
 
 import * as rateLimit from 'express-rate-limit';
 
-import {resolver, schemaQ} from './graphql';
+import {graphql} from './graphql';
 import {appConfig} from './configs';
 
 const serverRequestLimit = rateLimit({
@@ -34,8 +34,8 @@ class App {
         this.app.use(express.urlencoded({extended: true}));
 
         this.app.use(graphqlHTTP({
-            schema: schemaQ,
-            rootValue: resolver,
+            schema: graphql.schema,
+            customExecuteFn: graphql.createExecution(),
             graphiql: true
         }));
 
